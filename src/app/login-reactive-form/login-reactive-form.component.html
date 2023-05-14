@@ -1,0 +1,36 @@
+<div class="container mt-5">
+   
+    {{loginForm.value | json }}
+    <form class="form" [formGroup]="loginForm">
+        <input matInput type="text" placeholder="test" formControlName="userNameControl">
+        <mat-error *ngIf="loginForm.pristine==false && loginForm.value.userNameControl.length==0"> UserName Is Required </mat-error>
+        <input matInput type="text" placeholder="test"  formControlName="passWordControl">
+         <mat-error *ngIf=" loginForm.pristine==false && loginForm.value.passWordControl.length==0"> UserName Is Required </mat-error>
+         
+         <input  type="checkbox"   formControlName="remmeberMeControle">
+         <input  type="date"    formControlName="loginTimeControle">
+         <input  type="month"    formControlName="monthControl">
+         <input  type="file"  multiple  formControlName="fileSelectControl">
+         
+         <div formGroupName="addressGroup">
+         <input matInput type="text"  formControlName="addressLine1Controle">
+         <input matInput type="text"  formControlName="addressLine2Controle">
+         <input matInput type="text"  formControlName="postalControle">
+         <input matInput type="text"  formControlName="countryControle">
+         </div>
+         <div formArrayName="partyDetails">
+            <div *ngFor="let gues of guest.controls; let i=index;">
+                <div [formGroupName]="i">
+                 <input type="text" formControlName="guestName">
+                 <input type="text" formControlName="age">
+                </div>
+            </div>
+
+         </div>
+         <button mat-raised-button color="primary" type="button" (click)="addGuest()">Add Guest</button>
+         <!-- <mat-error *ngIf=" loginForm.pristine==false && loginForm.value.passWordControl.length==0"> UserName Is Required </mat-error> -->
+        <button type="submit">Submit</button>
+
+    </form>
+
+</div>

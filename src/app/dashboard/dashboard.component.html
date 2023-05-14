@@ -1,0 +1,18 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Dashboard</h1>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile   class="text-white" *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card" [ngStyle]="{ backgroundColor: card.backgroundColor}">
+          <div class="row ">
+            <div class="col-lg-4">               
+              <p class="m-4  text-white " style="font-size: 70px;"> {{card.uploaded}} </p>
+              <mat-card-subtitle class="ms-5 text-white">Uploaded Files</mat-card-subtitle>
+              <p class="mt-5  text-white " style="font-size: 70px;"> {{card.uploaded}} </p>
+              <mat-card-subtitle class="ms-5 text-white">Uploaded Files</mat-card-subtitle>
+            </div>            
+            
+          </div>
+      </mat-card>      
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
